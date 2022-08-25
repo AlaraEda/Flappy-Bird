@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flying : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public float velocity = 1;
     private Rigidbody2D rb;
 
@@ -22,5 +24,10 @@ public class Flying : MonoBehaviour
             //Jump
             rb.velocity = Vector2.up * velocity;
         }
+    }
+
+    //When bird falls done, show game over screen. 
+    private void OnCollisionEnter2D(Collision2D collision){
+        gameManager.GameOver();
     }
 }
